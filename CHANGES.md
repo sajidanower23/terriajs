@@ -3,9 +3,22 @@ Change Log
 
 ### Next Release
 
-* When using a Web Map Service (WMS) catalog item with the `linkedWcsUrl` and `linkedWcsCoverage` properties, we now pass the selected WMS style to the Web Coverage Service (WCS) so that it can optionally return different information based on the selected style.
+* Support displaying availability for imagery layers on charts, by adding `"showOnChart": true".
+* Support localizedAvailabilityService object for imagery layers, such as for satellite layers where only a thin strip of imagery is available at a given time. This requires a WMS service that provides a /GetFeatureInfo which returns a list of dates for the provided location. See source for more details.
+
+### v6.5.0
+
+* Add support for rendering Mapbox Vector Tiles (MVT) layers. Currently, polygons are the only supported geometry type, and all polygons are drawn with the same outline and fill colors.
+* `wwwroot/data/regionMapping.json` is now the default region mapping file (rather than a file provided by TerriaMap), and needs to be explicitly overridden by a `regionMappingDefinitionsUrl` setting in config.json.
+
+### v6.4.0
+
+* The Feature Info panel can now be moved by clicking and dragging it.
 * The map tool buttons are now arranged horizontally instead of vertically on small-screen mobile devices.
-* Add `stationIdWhitelist` and `stationIdBlacklist` properties to `SensorObservationServiceCatalogItem` to allow filtering certain monitoring stations in/out.
+* When using a Web Map Service (WMS) catalog item with the `linkedWcsUrl` and `linkedWcsCoverage` properties, we now pass the selected WMS style to the Web Coverage Service (WCS) so that it can optionally return different information based on the selected style.
+* Added `stationIdWhitelist` and `stationIdBlacklist` properties to `SensorObservationServiceCatalogItem` to allow filtering certain monitoring stations in/out.
+* Fixed a bug that caused a crash when attempting to use a `style` attribute on an `<a>` tag in Markdown+HTML strings such as feature info templates.
+* Fixed a bug that displaced the chart dropdown list on mobile Safari.
 
 ### v6.3.7
 
